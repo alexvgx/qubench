@@ -21,14 +21,14 @@ import reports
 # init arguments
 
 optionsParser = argparse.ArgumentParser()
-optionsParser.add_argument('-a', '--host', default="localhost")
-optionsParser.add_argument('-u', '--user', required=True)
-optionsParser.add_argument('-p', '--passwd', default="")
-optionsParser.add_argument('-d', '--db', required=True)
-optionsParser.add_argument('-c', '--clients', default=1)
-optionsParser.add_argument('-n', '--number', required=True)
-optionsParser.add_argument('-v', '--vebrose')
-optionsParser.add_argument('-f', '--file', required=True)
+optionsParser.add_argument('-a', '--host', default="localhost", help="db hostname")
+optionsParser.add_argument('-u', '--user', required=True, help="db username")
+optionsParser.add_argument('-p', '--passwd', default="", help="db password")
+optionsParser.add_argument('-d', '--db', required=True, help="db name")
+optionsParser.add_argument('-c', '--clients', default=1, help="clients count (no concurrency = 1)")
+optionsParser.add_argument('-n', '--number', required=True, help="queries count (more queries - more precision")
+optionsParser.add_argument('-v', '--vebrose', help="if set to '1' then vebrose more is on")
+optionsParser.add_argument('-f', '--file', required=True, help="path to file contains sql query")
 cliOptions = optionsParser.parse_args()
 
 
