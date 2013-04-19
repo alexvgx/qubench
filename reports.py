@@ -8,15 +8,18 @@ class BasicReport(object):
 		self.percentiles = percentiles
 
 
-	def output(self, durations_list, total_duration):
+	def output(self, sql_query, durations_list, total_duration):
 		
+		print "\nSQL:"
+		print "\n %s\n" % sql_query
+
 		# summary stat
 
 		queriesPerSecond = len(durations_list) / total_duration
 		minDuration = durations_list[len(durations_list)-1]*1000
 		maxDuration = durations_list[0]*1000
 
-		print "-----------------------------------------"
+		print "\n-----------------------------------------"
 		print "\nExecution time:"
 		print "\n %.2fs (%.1f rps)" % (total_duration, queriesPerSecond)
 		print "\n-----------------------------------------"
