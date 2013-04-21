@@ -1,7 +1,8 @@
 qubench
 =======
 
-sql query benchmark
+sql query benchmark<br />
+calculates query execution time distribution: min, max, percentiles. 
 
 <pre>
 usage: qubench.py [-h] [-a HOST] -u USER [-p PASSWD] -d DB [-c CLIENTS] -n
@@ -21,4 +22,40 @@ optional arguments:
   -v VEBROSE, --vebrose VEBROSE
                         if set to '1' then vebrose more is on
   -f FILE, --file FILE  path to file contains sql query
+</pre>
+
+EXAMPLE:
+
+<pre>
+PS qubench> python .\qubench.py -uroot -dtmon -n5000 -c100 --file=query.txt
+
+SQL:
+
+ SELECT * FROM Stats WHERE Clients_Id = 15 AND Date >= '2012-11-01' AND Date <= '2012-11-30' ORDER BY Date ASC
+
+
+-----------------------------------------
+
+Execution time:
+
+ 49.72s (100.6 rps)
+
+-----------------------------------------
+
+Min - Max:
+
+ 799.62 ms - 1125.36 ms
+
+-----------------------------------------
+
+Percentiles:
+
+
+ 50:  986.26 ms
+ 85:  1023.13 ms
+ 90:  1034.89 ms
+ 95:  1068.75 ms
+ 99:  1105.44 ms
+
+-----------------------------------------
 </pre>
