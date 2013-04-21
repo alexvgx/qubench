@@ -13,11 +13,13 @@ class BasicReport(object):
 		print "\nSQL:"
 		print "\n %s\n" % sql_query
 
+		durations_list.sort()
+
 		# summary stat
 
 		queriesPerSecond = len(durations_list) / total_duration
-		minDuration = durations_list[len(durations_list)-1]*1000
-		maxDuration = durations_list[0]*1000
+		maxDuration = durations_list[len(durations_list)-1]*1000
+		minDuration = durations_list[0]*1000
 
 		print "\n-----------------------------------------"
 		print "\nExecution time:"
@@ -28,9 +30,6 @@ class BasicReport(object):
 		print "\n-----------------------------------------"
 
 		# percentile stat
-
-		durations_list.sort()
-
 
 		print "\nPercentiles: "
 		print "\n"

@@ -57,16 +57,16 @@ SQL_QUERY = open(SQL_QUERY_FILE, 'r').read()
 
 threadsCapacity = []
 queriesRests = QUERIES_NUMBER
-queriesPerThread = int(math.floor(QUERIES_NUMBER / THREADS_NUMBER))
-threadIdx = 0
 
-while (queriesRests >= queriesPerThread):
-	threadsCapacity.append(queriesPerThread)
-	queriesRests -= queriesPerThread
+for threadIdx in range(0, THREADS_NUMBER):
+	threadsCapacity.append(0)
 
-if queriesRests != 0:
-	threadsCapacity.append(queriesRests)
-	queriesRests -= queriesRests
+while (queriesRests > 0):
+	for threadIdx in range(0, THREADS_NUMBER):
+		threadsCapacity[threadIdx] += 1
+		queriesRests -= 1
+		if queriesRests <= 0:
+			break
 
 threadIdx = 0
 for threadCapcity in threadsCapacity:
