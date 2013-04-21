@@ -31,8 +31,9 @@ PS qubench> python .\qubench.py -uroot -dtmon -n5000 -c100 --file=query.txt
 
 SQL:
 
- SELECT * FROM Stats WHERE Clients_Id = 15 AND Date >= '2012-11-01' AND Date <= '2012-11-30' ORDER BY Date ASC
-
+<code>
+ SELECT * FROM Stats WHERE Clients_Id = 15 AND Date >= '2012-11-01' AND Date <= '2012-11-30'
+</code>
 
 -----------------------------------------
 
