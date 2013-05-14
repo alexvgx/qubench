@@ -4,8 +4,8 @@
 #	- add console parameters to output
 #	- stream percentile calculation
 #
-import quapp
+import qubench.quapp
 
-quApp = quapp.QuApp()
+quApp = qubench.quapp.QuApp()
 quApp.bootstrap()
 quApp.run()
